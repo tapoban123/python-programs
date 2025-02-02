@@ -9,11 +9,11 @@ def findMean(numbers: list[int | float]):
 def findMedian(numbers: list[int | float]):
     n = len(numbers)
     numbers.sort()
-    return numbers[(n + 1) / 2] if n % 2 != 0 else ((numbers[n // 2] + numbers[n // 2 + 1]) // 2)
+    return (n + 1) // 2 if n % 2 != 0 else (((n / 2) + (n / 2 + 1)) // 2)
 
 
 def findMode(numbers: list[int | float]):
-    return 3 * findMedian(numbers) - 2 * findMean(numbers)
+    return max([numbers.count(x) for x in numbers])
 
 
 numbers = list(map(float, input("Enter the elements separated by a space: ").split()))
